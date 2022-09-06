@@ -1,11 +1,5 @@
-# Introduction to Reinforcement Learning with David Silver
+# Algorithmic Trading using RL
 
-home: https://www.deepmind.com/learning-resources/introduction-to-reinforcement-learning-with-david-silver
-
-
-This **classic 10 part course**, taught by Reinforcement Learning (RL) pioneer David Silver, was recorded in 2015 and remains a popular resource for anyone wanting to understand the **fundamentals of RL**.
-
-
-
+Me along with Ishwar Govind is working on this topic as our BTP under Dr. Chandra Shekar Lakshminarayanan
 
 
