@@ -48,13 +48,45 @@
 * ![](./assets/l2_p6.png) 
 * look at the red thingy
 * when you exit a state (circle) we will get the reward no matter what
-
+* (WAIT **IMP**) you get a reward no matter is correct but what reward you will get is based on what action your using to exit out of that state
 ### Bellam equation in matrix form
 * ![](./assets/l2_p7.png) 
 * this is a linear equation and hence can be solved directly
 * computation complexity : o($n^3$), hence not good for large n
 
 ## Markov Decision Process
+* we add finite set of actions (A) to the former
+* A Markov Decision Process is a tuple < S, A,P, R, γ >
+* ![](./assets/l2_p8.png) 
+
+### Policy
+* $\pi$ is a distribution over actions given states
+* state value: s the expected return starting from state s, and then following policy π
+* ![](./assets/l2_p9.png) 
+* action value: expected return starting from state s, taking action a, and then following policy π
+* ![](./assets/l2_p10.png) 
+* expansion
+* ![](./assets/l2_p11.png) 
+* 
+* Now computing the terms 
+* definions of state value and action value in terms of each other and putting it together in the third slide
+* the black filled circles are action
+* the white unfilled circles are states
+* ![](./assets/l2_p12.png) 
+* ![](./assets/l2_p13.png) 
+* ![](./assets/l2_p14.png) 
+* we can have somthing similar for q
+* ![](./assets/l2_p15.png) 
+* so basically we have a  2 step look ahead thingy to determine current value
+* 
+* EXample to solidify the answer.
+* ![](./assets/l2_p16.png) 
+* 
+* 
+* 
+* 
+* 
+* 
 * 
 * 
 * 
