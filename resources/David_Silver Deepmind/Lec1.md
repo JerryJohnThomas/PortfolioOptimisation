@@ -62,10 +62,46 @@ $\mathbb{P}\left[S_{t+1} \mid S_t\right]=\mathbb{P}\left[S_{t+1} \mid S_1, \ldot
 * Fully observable environment
     * Markov Decision Process (MDP)    
 * partially observable environment
+* agent state != env state
+* agent state
+
+## Inside RL agent
+
+* 3 major components of an agent
+    * Policy: state to what action to take 
+    * Value function: how good is an action/state or what is the expected reward of doing something 
+    * Model: Agent's view of the environment.
+
+### Policy
+* Deterministic policy: action = function(state)
+* Stochastic policy: $\pi$(a|s) = P[$A_t$ = a|$S_t$ = s]
+
+### Value
+* Value function is a prediction of future reward
+* Used to evaluate the goodness/badness of states And therefore to select between actions
+* $v_π(s) = E [R_{t+1} + γR_{t+2} + γ^2 R_{t+3} + ... |  S_t = s$]
+* this is like given one state what is the expected cummulative rewards that we can get.
+* state value vs action value
+    * state value: Following a policy p the state-value-function returns the value, i.e. the expected return for selecting a certain state s. Return means the overall reward.
+    * action value: Following a policy p the action-value-function returns the value, i.e. the expected return for using action a in a certain state s. Return means the overall reward. 
+* we can think risk is already accounted for in this
+
+### Model
 * 
 * 
 * 
 * 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+
+
 
 
 
