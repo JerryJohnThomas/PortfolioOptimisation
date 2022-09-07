@@ -87,12 +87,19 @@ $\mathbb{P}\left[S_{t+1} \mid S_t\right]=\mathbb{P}\left[S_{t+1} \mid S_1, \ldot
 * we can think risk is already accounted for in this
 
 ### Model
-* 
-* 
-* 
-* 
-* 
-* 
+* Transition: P predicts the next state
+* Reward: R predicts the next (immediate) reward
+* most of the stuff might not build a model of the env and all together by pass it.
+
+## Examples
+* Maze Example
+    * Rewards: -1 per time-step
+    * Actions: N, E, S, W
+    * State: location of the agent
+    * Deterministic Policy: at each location what action would you take next
+    * value function: state value function 
+    * 
+![](./assets/l1_p2.png)
 * 
 * 
 * 
