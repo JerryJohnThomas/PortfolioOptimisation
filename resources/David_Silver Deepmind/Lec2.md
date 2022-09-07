@@ -81,13 +81,17 @@
 * 
 * EXample to solidify the answer.
 * ![](./assets/l2_p16.png) 
+* AN important thing to not here is that pub's dot is not a state, pub is an action and that has 3 possible ending states unlike study which has 1 end state for that action 
+
+## optimal value function
+* we need to find the best behaviour of MDP
+* The optimal state-value function $v_∗(s)$ is the maximum value function over all policies
+    * $v_∗(s) = max_π \space v_π(s)$
+* The optimal action-value function q∗(s, a) is the maximum action-value function over all policies
 * 
-* 
-* 
-* 
-* 
-* 
-* 
+    * $q_∗(s,a) = max_π \space q_π(s,a)$
+* If we have q* then game over we have what is the action scores of each of the action at every state of every policy possible
+* reached 1:15
 * 
 * 
 * 
