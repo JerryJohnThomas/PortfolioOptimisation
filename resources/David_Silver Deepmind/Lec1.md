@@ -67,10 +67,10 @@ $\mathbb{P}\left[S_{t+1} \mid S_t\right]=\mathbb{P}\left[S_{t+1} \mid S_1, \ldot
 
 ## Inside RL agent
 
-* 3 major components of an agent
-    * Policy: state to what action to take 
-    * Value function: how good is an action/state or what is the expected reward of doing something 
-    * Model: Agent's view of the environment.
+* **3 major components of an agent**
+    1. Policy: state to what action to take 
+    1. Value function: how good is an action/state or what is the expected reward of doing something 
+    1. Model: Agent's view of the environment (optional).
 
 ### Policy
 * Deterministic policy: action = function(state)
@@ -98,11 +98,34 @@ $\mathbb{P}\left[S_{t+1} \mid S_t\right]=\mathbb{P}\left[S_{t+1} \mid S_1, \ldot
     * State: location of the agent
     * Deterministic Policy: at each location what action would you take next
     * value function: state value function 
-    * 
+    * Model :  the reward at each box is -1 coz each time step
 ![](./assets/l1_p2.png)
-* 
-* 
-* 
+    * This represent value of each state
+
+## Categorising RL agents
+### type 1
+* value based 
+    * if i have the value of each next state that i can take then i dont need a policy to dictate what is the next action i have to taken i can take the states greedily based on its value
+    * no policy 
+* policy based
+    * we have a policy to tell us what action to take at each state
+    * so need to mantain the value at each state
+* Actor Critic
+    * best of both worlds
+### type 2
+* model free
+* model based
+![](./assets/l1_p3.png)
+
+## Problems with RL
+* Learning and Planning
+    * learnging: environment unknown 
+    * Planning: environment is known
+        * so we can plan ahead and choose the best outcome. eg. tree search
+* exploration vs exploitation trade off 
+* prediction vs control
+    * how well will i do if i follow my current plolicy
+    * which direction to walk to get best reward
 * 
 * 
 * 
