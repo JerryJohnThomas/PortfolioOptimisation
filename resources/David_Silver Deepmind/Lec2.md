@@ -91,11 +91,48 @@
 * 
     * $q_∗(s,a) = max_π \space q_π(s,a)$
 * If we have q* then game over we have what is the action scores of each of the action at every state of every policy possible
-* reached 1:15
-* 
-* 
-* 
-* 
 
+## optimal policy
+* policy p1 is better than p2 if its better than the other in all the states
+* **IMP** Theorem
+    * **There exists an optimal policy $π_∗$** that is better than or equal to all other policies 
+    * All optimal policies achieve the optimal action-value function,
+    * All optimal policies achieve the optimal value function 
+    * NOTE: $\pi_*$ might not be unique
+* you have hope hehe
+* $\pi_*(a \mid s)= \begin{cases}1 & \text { if } a=\underset{a \in \mathcal{A}}{\operatorname{argmax}}\space q_*(s, a) \\ 0 & \text { otherwise }\end{cases}$ 
+* the above tells take the action that gives us maximum Q*
+* There is always a deterministic optimal policy for any MDP
+* If we know q∗(s, a), we immediately have the optimal policy 
 
+## Bellman Optimality Equation
+* V*
+    * $v_*(s)=\max _a q_*(s, a)$
+    * Value function of a state is the maximum of the q values of the (state, action) pairs
+* Q*
+    * in this we assume the v in the next states are v* thats all, formula is same.
+    * $q_*(s, a)=\mathcal{R}_s^a+\gamma \sum_{s^{\prime} \in \mathcal{S}} \mathcal{P}_{s s^{\prime}}^a v_*\left(s^{\prime}\right)$
+* putting it together
+* $v_*(s)=\max _a \mathcal{R}_s^a+\gamma \sum_{s^{\prime} \in \mathcal{S}} \mathcal{P}_{s s^{\prime}}^a v_*\left(s^{\prime}\right)$
+* $q_*(s, a)=\mathcal{R}_s^a+\gamma \sum_{s^{\prime} \in \mathcal{S}} \mathcal{P}_{s s^{\prime}}^a \max _{a^{\prime}} q_*\left(s^{\prime}, a^{\prime}\right)$
+* Bellman optimality eq is **non-linear**
+* No closed form solution 😢
+* we can try **iterative** solutions
+    * Value Iteration
+    * Policy Iteration
+    * Q-learning
+    * Sarsa
+## Recap
+* we have bellman expectation and bellman optimality equation
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 
