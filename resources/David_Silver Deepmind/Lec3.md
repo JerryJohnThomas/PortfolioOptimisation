@@ -43,15 +43,32 @@ Dynamic Programming
     * once it converges, compute the RHS policy and that will be the optimal policy 
     * in above example we need to compute RHS only once after the LHS converges 
 * but its not always like that.
-* 32:55
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+* ![](./assets/l3_p2.png)
+* No matter where you start (value function or policy) we will arrive at the optimal policy 
+
+More mathematics  
+
+* Consider a deterministic policy $a =\pi (s)$ 
+$$
+\pi^{\prime}(s)=\underset{a \in \mathcal{A}}{\operatorname{argmax}} q_\pi(s, a)
+$$
+- This improves the value from any state $s$ over one step, **Greedy works**
+$$
+q_\pi\left(s, \pi^{\prime}(s)\right)=\max _{a \in \mathcal{A}} q_\pi(s, a) \geq q_\pi(s, \pi(s))=v_\pi(s)
+$$
+It therefore improves the value function, $v_{\pi^{\prime}}(s) \geq v_\pi(s)$
+$$
+\begin{aligned}
+v_\pi(s) & \leq q_\pi\left(s, \pi^{\prime}(s)\right)=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_\pi\left(S_{t+1}\right) \mid S_t=s\right] \\
+& \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_\pi\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_t=s\right] \\
+& \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^2 q_\pi\left(S_{t+2}, \pi^{\prime}\left(S_{t+2}\right)\right) \mid S_t=s\right] \\
+& \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\ldots \mid S_t=s\right]=v_{\pi^{\prime}}(s)
+\end{aligned}
+$$
+* basically the new policy is better even for 1 step and eventually it will converge
+* when it stops then optimal is reached 
+>>main take away
+* so **policy iteration with greedy solves MDP**
+* 56:00
 * 
 * 
