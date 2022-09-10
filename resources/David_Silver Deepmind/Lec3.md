@@ -70,5 +70,89 @@ $$
 >>main take away
 * so **policy iteration with greedy solves MDP**
 * 56:00
+## Till when do we have to iterate
+* opt1: changes are less than $\epsilon$ 
+* opt2: simply stop after k iterations
+    * this seems like magic (no proof here though) 
+
+## Value iteration
+### optimatlity
+![](./assets/l3_p3.png)
+* any state we go to from there everything is optimal 
+
+### finding v*
+* given v*(child_state)
+* how to find v
+![](./assets/l3_p4.png)
+* hence given the last v* give it some value, we can calculate everything 1 step behind then 2 steps behing then 3 steps behind 
+* work backwards with MDP
+
+### toy example
+![](./assets/l3_p5.png)
+* here in k iteration we update till k layers of MDP from the goal
+* in DP **we update every cell** coz we dont know which layer might take us to the goal
+* at each point we try to make the value function as the best thing it can take
+
+### DEMO
+* https://www.cs.ubc.ca/~poole/demos/mdp/vi.html
+
+## Summary of DP
+* prediction : evaluation
+* control: get the optimal/best stuff
+![](./assets/l3_p6.png)
+* for m actions and n states
+    * complexity for stuff based on state-value function $v_\pi(s)$ has $O(m.n^2)$
+    * complexity for stuff based on action-value function $q_*(s,a)$ has $O(m^2.n^2)$
+
+## Extensions to DP
+* async dp
+    * in place dp
+    * prioritised sweeping
+    * Real-time dynamic programming
+* Im not paying much attention from this point
 * 
 * 
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Major Takeaways
+* In value iteration
+    * someone is telling us the dynamic of the system then we are using one V function to find all the other V iteratively
+    * we are not solving the RL problem
+* In policy iteration
+    * we evaluate then greedily select one then repeat
