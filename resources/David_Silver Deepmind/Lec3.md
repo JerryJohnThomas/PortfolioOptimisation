@@ -106,9 +106,10 @@ $$
 
 ## Extensions to DP
 * async dp
-    * in place dp
-    * prioritised sweeping
-    * Real-time dynamic programming
+    * in place dp - 
+    * prioritised sweeping - 
+    * Real-time dynamic programming - dont update all the states, just the states that the agent visits in real time. use real time samples
+
 * Im not paying much attention from this point
 * 
 * 
@@ -156,3 +157,4 @@ $$
     * we are not solving the RL problem
 * In policy iteration
     * we evaluate then greedily select one then repeat
+* solve a known MDP

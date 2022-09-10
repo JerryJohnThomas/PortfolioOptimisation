@@ -1,5 +1,7 @@
 # Introduction to Reinforcement Learning with David Silver
 
+[here](https://www.deepmind.com/learning-resources/introduction-to-reinforcement-learning-with-david-silver)
+
 home: https://www.deepmind.com/learning-resources/introduction-to-reinforcement-learning-with-david-silver
 
 
