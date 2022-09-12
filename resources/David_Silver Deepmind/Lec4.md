@@ -118,7 +118,7 @@ Q: why do we assume the value after 1 step will be better than current value
 Which n is better?
 * it depends
 * another method to do is return avg(return_n=2 +return_n=6 + ...)
-* Can we do avg return of all n returns ?? YES its called $TD(\lanbda)$
+* Can we do avg return of all n returns ?? YES its called $TD(\lambda)$
 * 1:27
 * 
 * 
