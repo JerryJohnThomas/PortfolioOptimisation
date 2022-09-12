@@ -90,8 +90,42 @@ What is V(A), V(B)?
     * ![](./assets/l4_p5.png)
     * V(B) =  
     * V(A) = 
-* 01:03:00 : start here
 * **didn't understand the above example**.
+
+Bootstrap 
+* MC does not bootstrap while TD does
+
+Backup
+* how far along the tree branch will you go to see the actual result
+* MC full backup, TD shallow backup
+* ![](./assets/l4_p6.png)
+
+We can do TD-$\lambda$ to pick something from sallow to deep backup along the lower horizontal axis in the figure
+
+
+Q: why do we assume the value after 1 step will be better than current value
+* the other way we get the wrong ans
+
+
+## $TD -\lambda$
+* we did 1 step then estimate, why not
+* do 2 step then estimate, why not
+* do n step then estimate, why not
+* eventually ($\infin$) you will reach all the steps which is monte carlo
+* TD0: 1 step version
+* ![](./assets/l4_p7.png)
+
+Which n is better?
+* it depends
+* another method to do is return avg(return_n=2 +return_n=6 + ...)
+* Can we do avg return of all n returns ?? YES its called $TD(\lanbda)$
+* 1:27
+* 
+* 
+* 
+
+
+
 
 ## Asignment
 * https://www.davidsilver.uk/wp-content/uploads/2020/03/Easy21-Johannes.pdf
