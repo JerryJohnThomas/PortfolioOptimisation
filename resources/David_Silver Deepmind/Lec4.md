@@ -119,13 +119,23 @@ Which n is better?
 * it depends
 * another method to do is return avg(return_n=2 +return_n=6 + ...)
 * Can we do avg return of all n returns ?? YES its called $TD(\lambda)$
-* 1:27
-* 
-* 
-* 
 
+$\lambda$ - return
+* we normalise each return
+* for n=1 we multiply with (1-$\lambda$)
+* for n=2 we multiply with (1-$\lambda$) . $\lambda$
+* for n=3 we multiply with (1-$\lambda$) . $\lambda^2$
+* for n=k we multiply with (1-$\lambda$) . $\lambda^{k-1}$
+* Now our new estimated return $G_t^\lambda$
 
+## Eligibility Trace
+* back to the electricty example
+* some say frequency heurisitc, some recency 
+* elgibilty trace combines both
+* ![](./assets/l4_p8.png) 
 
+Backward lambda and forward are equivalent
+Didn't understand the last part much
 
 ## Asignment
 * https://www.davidsilver.uk/wp-content/uploads/2020/03/Easy21-Johannes.pdf
