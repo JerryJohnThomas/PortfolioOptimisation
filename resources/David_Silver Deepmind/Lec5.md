@@ -61,6 +61,32 @@ GLIE
 Not very much understanding but 
 01:00:00 
 
-### Windy grid Example
+![](./assets/l5_p4.png)
+
+## Sarsa $\lambda$
+
+* traditional sarsa (Sarsa-0) : after one episode we update one state
+* $lambda$ = 1 then all the updates will be thick (MC)
+* $lambda$ = 0.9 then the last update will be thick second last be thinner and gets thinner and so on
+* $lambda$ tells us how far back should we update
+* the further back you look the more variance you have, but less bias (less effects of bootstrapping)
+* reminder how this works is return is (1-lambda).lambda^n scaled returns .
+    * if lambda 1 then all returns are equal weightage 
+    * if lambda 0 then only last one has weight age or something like that.
+
+
+
+## Off Policy Learning
+Why is this important?
+* Learn from observing humans or other agents
+* Re-use experience generated from old policies π1, π2, ..., πt−1
+* Learn about optimal policy while following exploratory policy
+* Learn about multiple policies while following one policy
+
+* 
+* 
+* 
+* 
+* 
 
 
