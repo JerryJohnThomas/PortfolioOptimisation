@@ -83,7 +83,9 @@ Why is this important?
 * Learn about optimal policy while following exploratory policy
 * Learn about multiple policies while following one policy
 
-* 
+MC sucks only TD learning works here
+
+## Q learning
 * 
 * 
 * 
