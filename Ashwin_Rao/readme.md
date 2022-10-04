@@ -3,7 +3,7 @@
 There are 5 applications in finance from one course
 *  https://web.stanford.edu/class/cme241/
 * https://stanford.edu/~ashlearn/RLForFinanceBook/book.pdf
-
+* https://github.com/TikhonJelvis/RL-book/ has codes for the book
 
 ## key takeaways
 
