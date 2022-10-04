@@ -36,4 +36,9 @@ Apply these algorithms to 5 Financial/Trading problems:
 
 * Portfolio optimisation - [link](https://medium.com/analytics-vidhya/portfolio-optimization-using-reinforcement-learning-1b5eba5db072)
 * Paper 2020 - [link](https://escholarship.mcgill.ca/downloads/4m90f090q)
+* RL trading Youtube (Nicholas Renotte)- [link](https://www.youtube.com/watch?v=D9sU1hLT0QY)
+
+
+* anytrading gym - AnyTrading is a collection of OpenAI Gym environments for reinforcement learning-based trading algorithms. - [link](https://github.com/AminHP/gym-anytrading)
 * 
+ 
