@@ -17,7 +17,7 @@ Apply these algorithms to 5 Financial/Trading problems:
 
 
 
-
+    
 
 ## timeline
 1. Jan 5 - doing
@@ -40,5 +40,10 @@ Apply these algorithms to 5 Financial/Trading problems:
 
 
 * anytrading gym - AnyTrading is a collection of OpenAI Gym environments for reinforcement learning-based trading algorithms. - [link](https://github.com/AminHP/gym-anytrading)
-* 
+    * the only 2 things it has is sell or buy, no hold
  
+* 🌟 Finrl helping medium article - [link](https://towardsdatascience.com/finrl-for-quantitative-finance-tutorial-for-multiple-stock-trading-7b00763b7530) 
+
+
+
+
