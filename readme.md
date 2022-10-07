@@ -1,5 +1,4 @@
-# Algorithmic Trading using RL
+# Algorithmic Trading using Reinforcement Learning
 
-Me along with Ishwar Govind is working on this topic as our BTP under Dr. Chandra Shekar Lakshminarayanan
-
-
+## Jerry John Thomas
+## Ishwar Govind
