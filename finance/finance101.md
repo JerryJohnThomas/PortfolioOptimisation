@@ -1,7 +1,6 @@
 # finance
 
 
-
 ## short selling
 [link](https://www.investopedia.com/terms/s/shortselling.asp)
 
