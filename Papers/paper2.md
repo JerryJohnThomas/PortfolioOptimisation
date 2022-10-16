@@ -177,9 +177,73 @@ financial environment is modelled as a discrete-time, stochastic dynamic system 
     * higher the better
 
 ## 5. Survey of Reinforcement Learning Techniques
-### 5.1 Introduction to Reinforcement Learning
-*  
+* pls refer but its basic, but a good gloassary 
+
+## 6. Trading Agents
+### 6.1 Baseline Agents
+* To properly benchmark our RL agents, we compared their performance to four
+baseline models
+
+1. Uniform Allocation
+    * ![](./assets/p2_p8.png)
+    * $$A_{t,i}=\frac{1}{M} \space \forall \space i$$
+
+2. Random Allocation
+    * $$ A_{t, i}=\frac{f(i)}{\sum_i^M f(i)} \text { where } f(i) \text { is a function of a random variable } $$
+3. Buy and Hold 
+    * $$ A_{t, i}=c_i \forall i 0 \leq c_i \leq 1 $$
+    * where ci is a constant portfolio.
+    * At,i is chosen based on the mean returns of the initial observation
+4. Markowitz Model
+    * ![](./assets/p2_p9.png)
+
+### 6.2 Selection Criteria for RL Agents
+1. model free
+1. used somewhere similar literature
+1. agent must support continuous action and state spaces as the financial environment has continuous action and state spaces
+
+Verdict : A2C, DDPG, NAF, PPO, REINFORCE, SAC, TD3, TRPO are the models that satisfy the above 
+
+
+### 6.3 Theoretical Description of Selected RL Agents
+
+* one significant limitation of the DQN and many of its variants is that they
+cannot be used in continuous action spaces
+* The NAF model for applying Q-learning with experience replay to continuous action spaces
+* Deep Q-Learning performed well in high-dimensional state spaces but not in high-dimensional action spaces (continuous action).
+* To cope with high-dimensional (continuous) action spaces, DDPG
+blends Deep Learning and Reinforcement Learning approaches
+* The DQN method is known to exhibit overestimation bias, which means that it
+overestimates the value function
+
+ALL THE MODELS ARE MENTIONED BRIEFLY pls refer
+
+**now skimming through, pls come back**
+Is useful for report interim
+
+
+
+## 7. Experiments
+* Data - Dow Jones 30
+* Reward Function : log returns and differential Sharpe ratio.
+* Lookback Period : 64 days (domain expert advice)
+* Trading Costs : 0, 0.1%, 1% of stock price (three variations)
 * 
+
+### 7.3 Metrics
+* Annualized Returns - yearly average profit (math part i didnot understand)
+    *   (1 + Return )∧ (1/N) − 1 = Annualized Return
+* Cumulative Return : (P_current − P_initial ) /P_initial
+* Sharpe Ratio : 
+* Maximum Drawdown (Max DD) : (min - max)/max
+* Calmar Ratio : (Portfolio_return - Risk_free_rate) / MDD 
+
+
+
+## 8. Results & Discussion
+### 8.1 Results
+
+
 
 
 
