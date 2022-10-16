@@ -15,3 +15,13 @@ Short selling occurs when an investor borrows a security and sells it on the ope
 
 
 technic
+
+
+short
+* example when something is gona crash
+* bet that market is going down
+* you borrow it from someone and sell it (high) then buy back (low) keep the high-low and give back the stock to the original person
+
+long 
+* bet that market is going up
+* sell 
