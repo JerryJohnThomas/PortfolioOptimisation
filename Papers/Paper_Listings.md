@@ -11,3 +11,6 @@
 
 
 * https://www.um.edu.mt/library/oar/bitstream/123456789/91919/1/21MAIPT024.pdf
+* https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3690996 - Deep Reinforcement Learning for Automated Stock Trading: An Ensemble Strategy
+* https://arxiv.org/pdf/2106.16088.pdf
+* 
