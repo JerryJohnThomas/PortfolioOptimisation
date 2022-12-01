@@ -42,7 +42,11 @@ class StockEnvTrade(gym.Env):
         self.terminal = False
         
         # initalize state
-        self.state = [INITIAL_ACCOUNT_BALANCE] + self.data.values.tolist() + [0]*self.stock_dim
+        # self.state = [INITIAL_ACCOUNT_BALANCE] + self.data.values.tolist() + [0]*self.stock_dim
+        
+        # initiallising with HMAX_NORMALIZE number stocks of each stock 
+        self.state = [INITIAL_ACCOUNT_BALANCE] + self.data.values.tolist() + [HMAX_NORMALIZE]*self.stock_dim
+        print("Init stocks in init() : " , self.state[(self.stock_dim+1):(self.stock_dim*2+1)])
         
         # initialize reward
         self.reward = 0
@@ -76,7 +80,7 @@ class StockEnvTrade(gym.Env):
 
         self.state[index+self.stock_dim+1] += action
         
-    def step(self, actions):
+    def step(self, actions, printMode=False):
         self.terminal = self.day >= len(self.df.index.unique())-1
         
         if self.terminal:
@@ -84,6 +88,10 @@ class StockEnvTrade(gym.Env):
 
         else:       
             actions = actions * HMAX_NORMALIZE
+            
+            if printMode:
+                print("actions: ", actions)
+                print("Init stocks" , self.state[(self.stock_dim+1):(self.stock_dim*2+1)])
             
             begin_total_asset = self.state[0]+ \
             sum(np.array(self.state[1:(self.stock_dim+1)])*np.array(self.state[(self.stock_dim+1):(self.stock_dim*2+1)]))
@@ -110,6 +118,10 @@ class StockEnvTrade(gym.Env):
         
             self.reward = end_total_asset - begin_total_asset            
             weights = self.normalization(np.array(self.state[(self.stock_dim+1):(self.stock_dim*2+1)]))
+            
+            if printMode:
+                print("stocks" , self.state[(self.stock_dim+1):(self.stock_dim*2+1)])
+                print("weights" , weights)
 
             self.actions_memory.append(weights.tolist())
             self.reward = self.reward
@@ -126,7 +138,7 @@ class StockEnvTrade(gym.Env):
         self.actions_memory=[[1/self.stock_dim]*self.stock_dim]
 
         #initiate state
-        self.state = [INITIAL_ACCOUNT_BALANCE] + self.data.values.tolist() + [0]*self.stock_dim
+        self.state = [INITIAL_ACCOUNT_BALANCE] + self.data.values.tolist() + [HMAX_NORMALIZE]*self.stock_dim
         
         self._seed(0) 
 
@@ -172,6 +184,7 @@ def DRL_prediction(model, data, env, obs):
     actions_memory = []
     model.set_random_seed(10)
     for i in range(len(data.index.unique())):
+        print("DAY ",i)
         action, _states = model.predict(obs)
         obs, rewards, dones, info = env.step(action)
         if i == (len(data.index.unique()) - 2):
