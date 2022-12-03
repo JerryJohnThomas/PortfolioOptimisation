@@ -128,7 +128,7 @@ doi: 10.3390/axioms9040130
 ### 4.1 Assumptions
 
 financial environment is modelled as a discrete-time, stochastic dynamic system with
-* There is no dependence on explicit stock price prediction (model-free).
+* There is no dependence on explicit stock price prediction (model-free).   
 * The actions of the RL agent should be continuous.
 * There will be zero slippage.
 * The RL agents have zero market impact.
