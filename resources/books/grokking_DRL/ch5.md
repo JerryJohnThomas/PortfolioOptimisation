@@ -41,11 +41,17 @@ N-step TD learning: Improving estimates after a couple of steps
 
 Forward-view TD(λ): Improving estimates of all visited states
 * what is a good n value, then ?
-* 
-* 
-* 
-* 
-* 
-* 
+* forward and backward is mentioned
 
+n-step bootstrapping,
+you’re still under “the curse of the time step” because you still have to wait until n interactions with the environment have passed before you can make an update to the state-value
+function estimates
+
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 
