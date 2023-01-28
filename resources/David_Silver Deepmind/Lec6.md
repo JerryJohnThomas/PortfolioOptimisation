@@ -2,6 +2,7 @@
 Lecture 6: Value Function Approximation
 
 [video](https://www.youtube.com/watch?v=UoPei5o4fps&list=PLqYmG7hTraZBiG_XpjnPrSNw-1XQaM_gB&index=8)
+
 [slides](https://www.davidsilver.uk/wp-content/uploads/2020/03/FA.pdf)
 
 when we scale up we need some things more
@@ -68,8 +69,13 @@ TD Learning with Value Function Approximation
 
 ## Linear Sarsa with Coarse Coding in Mountain Car
 * sarsa, one step TD Q updates and greedy Q to get action 
-* 
-* 
+
+
+General
+* be careful with TD, use gradient TD. 
+* ok basicaly post 1 hr not much idea
+
+
 * 
 * 
 * 
