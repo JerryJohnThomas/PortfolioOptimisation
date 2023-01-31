@@ -101,7 +101,8 @@ perhaps learn one as we interact with the environment?
 * interleaving a model-free RL method, such as Q-learning, and a planning method, similar to value iteration
 * ![](./assets/l7_p1.png)
 * 
-* 
+* SKipping this for now :
+    **will come back later**
 * 
 * 
 * 
