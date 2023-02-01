@@ -30,10 +30,44 @@ Introduction to function approximation for reinforcement learning
 * The main drawback of tabular reinforcement learning is that the use of a table to represent value functions is no longer practical in complex problems.
 * number of variables that comprise a single state is vast
 * Reinforcement learning problems can have continuous state and action spaces
-* 
-* 
-* 
-* 
+
+* ![](./assets/l8_p1.png)
+
+
+## NFQ: The first attempt at value-based deep reinforcement learning
+* neural fitted Q (NFQ) iteration
+
+1. First decision point: Selecting a value function to approximate
+1. Second decision point: Selecting a neural network architecture
+    * State-action-in-value-out architecture
+    * State-in-values-out architecture
+1. Third decision point: Selecting what to optimize
+    * An ideal objective in valuebased deep reinforcement learning would be to minimize the loss with respect to the optimal action-value function q*
+    * ![](./assets/l8_p2.png)
+    * we want to minimise the difference between the actual q* and our estimate Q 
+    * but we dont have q*
+    * ![](./assets/l8_p3.png)
+1. Fourth decision point: Selecting the targets for policy evaluation
+    * Often in the literature, the on-policy version of this target is called the SARSA target, and the off-policy version is called the Q-learning target.
+1. On-policy and off-policy TD targets
+    * ![](./assets/l8_p4.png)
+    * ![](./assets/l8_p5.png)
+1. Fifth decision point: Selecting an exploration strategy
+    * balance the exploration-exploitation trade-off, and almost any of those techniques would work fine. But in an attempt to keep it simple, we’re going to use an epsilon-greedy strategy on our NFQ implementation
+1. Sixth decision point: Selecting a loss function
+    * MSE (mean squared error, or L2 loss)
+    * ![](./assets/l8_p6.png)
+1. Seventh decision point: Selecting an optimization method
+    * batch gradient descent, momentum , schoastic etc
+
+
+Things that could (and do) go wrong
+* There are two issues with our algorithm. F
+    * Non-stationary target
+    * ![](./assets/l8_p7.png)
+* Data correlated with time
+    * All this means that we aren’t holding the IID assumption, and this is a problem because optimization methods assume the data samples they use for training are independent and identically distributed. But we’re training on almost the exact opposite: samples on our distribution are not independent because the outcome of a new state s is dependent on our current state s.
+    * 
 * 
 
 
