@@ -1,4 +1,4 @@
-# 
+# Note 1- Understanding DDPG 
 
 
 ## what are we trying to do ???
@@ -9,9 +9,7 @@
 * 
 
 
-##  Understanding DDPG 
-
-### Attempt 0 
+## Attempt 0 
 
 ![ref](https://towardsdatascience.com/deep-deterministic-policy-gradient-ddpg-theory-and-implementation-747a3010e82f)
 * DQN
@@ -108,21 +106,21 @@ mu_target.set_weights(temp3)
 
 
 
-### Attempt 2 (chat gpt) 
+## Attempt 2 (chat gpt) 
 
-#### critic
+### critic
 * critic network that estimates the Q-value (expected future rewards) of a given state-action pair
 * This critic network is trained using the Bellman equation, which updates the Q-value estimate based on the observed reward and the expected future reward
 
-#### policy net
+### policy net
 * maintains a policy network that learns to maximize the expected future reward
 * The policy network is updated using the gradients of the Q-values with respect to the actions, which are estimated using the critic network.
 
-#### innovations
+### innovations
 
 * The key innovation of DDPG is the use of a replay buffer to store experience tuples, which are randomly sampled during training. This allows the algorithm to learn from past experiences and improve its performance. 
 
-#### Losses
+### Losses
 * 
 * 
 * 
@@ -132,16 +130,16 @@ mu_target.set_weights(temp3)
 * 
 
 
-### Attempt 3 
+## Attempt 3 (Open AI) [the best]
 
 [open AI](https://spinningup.openai.com/en/latest/algorithms/ddpg.html)
 
 
-#### Introduction
+### Introduction
 * 2 parts of DDPG: learning a Q function, and learning a policy.
 
 
-#### The Q-Learning Side of DDPG
+### The Q-Learning Side of DDPG
 * First, let’s recap the Bellman equation describing the optimal action-value function, Q^*(s,a). It’s given by
 * optimal Q*
 * ![](https://spinningup.openai.com/en/latest/_images/math/3a8b6ce0d6c0b68744b5724403f5d70ed5cda5db.svg)
@@ -157,28 +155,113 @@ mu_target.set_weights(temp3)
     * 
     * 
 
-#### DDPG Detail: Calculating the Max Over Actions in the Target.
+### DDPG Detail: Calculating the Max Over Actions in the Target.
 * As mentioned earlier: computing the maximum over actions in the target is a challenge in continuous action spaces
 * **DDPG deals with this by using a target policy network to compute an action which approximately maximizes $Q_{\phi_{\text{targ}}}.$**
 * The target policy network is found the same way as the target Q-function: by polyak averaging the policy parameters over the course of training
 * ![](https://spinningup.openai.com/en/latest/_images/math/4421120861d55302d76c7e2fd7cc5b2da7aea320.svg)
 * basically max a' Q(s',a') is now replaced by the output of the policy network **where $\mu_{\theta_{\text{targ}}}$ is the target policy.**
 
-#### The Policy Learning Side of DDPG
+### The Policy Learning Side of DDPG
 *  We want to learn a deterministic policy $\mu_{\theta}(s)$ which gives the action that maximizes $Q_{\phi}(s,a)$
 * aim: ![](https://spinningup.openai.com/en/latest/_images/math/cc4e3565d839e63e871a1cf7e3ce5e95bb616b29.svg)
 
-#### Exploration vs. Exploitation
+### Exploration vs. Exploitation
 * DDPG trains a deterministic policy in an off-policy way
 * WHy not on policy?
     * not much exploration
     * Because the policy is deterministic, if the agent were to explore on-policy, in the beginning it would probably not try a wide enough variety of actions to find useful learning signals
 
-#### Code
+### Code
 * 
 * ![](https://spinningup.openai.com/en/latest/_images/math/5811066e89799e65be299ec407846103fcf1f746.svg)
-* 
-* 
+* [code_Ref](https://github.com/openai/spinningup/blob/master/spinup/algos/pytorch/ddpg/ddpg.py#L44)
+
+```python
+ def compute_loss_q(data):
+    o, a, r, o2, d = data['obs'], data['act'], data['rew'], data['obs2'], data['done']
+
+    q = ac.q(o,a)
+
+    # Bellman backup for Q function
+    with torch.no_grad():
+        q_pi_targ = ac_targ.q(o2, ac_targ.pi(o2))
+        backup = r + gamma * (1 - d) * q_pi_targ
+
+    # MSE loss against Bellman backup
+    loss_q = ((q - backup)**2).mean()
+
+    # Useful info for logging
+    loss_info = dict(QVals=q.detach().numpy())
+
+    return loss_q, loss_info
+
+
+def compute_loss_pi(data):
+    o = data['obs']
+    q_pi = ac.q(o, ac.pi(o))
+    return -q_pi.mean()
+```
+
+```python
+
+def ddpg():
+
+    # Create actor-critic module and target networks
+    ac = actor_critic(env.observation_space, env.action_space, **ac_kwargs)
+    ac_targ = deepcopy(ac)
+
+    # Freeze target networks with respect to optimizers (only update via polyak averaging)
+    for p in ac_targ.parameters():
+        p.requires_grad = False
+
+    # Experience buffer
+    replay_buffer = ReplayBuffer(obs_dim=obs_dim, act_dim=act_dim, size=replay_size)
+
+    # Set up optimizers for policy and q-function
+    pi_optimizer = Adam(ac.pi.parameters(), lr=pi_lr)
+    q_optimizer = Adam(ac.q.parameters(), lr=q_lr)
+```
+```python
+def update(data):
+    # First run one gradient descent step for Q.
+    q_optimizer.zero_grad()
+    loss_q, loss_info = compute_loss_q(data)
+    loss_q.backward()
+    q_optimizer.step()
+
+    # Freeze Q-network so you don't waste computational effort 
+    # computing gradients for it during the policy learning step.
+    for p in ac.q.parameters():
+        p.requires_grad = False
+
+    # Next run one gradient descent step for pi.
+    pi_optimizer.zero_grad()
+    loss_pi = compute_loss_pi(data)
+    loss_pi.backward()
+    pi_optimizer.step()
+
+    # Unfreeze Q-network so you can optimize it at next DDPG step.
+    for p in ac.q.parameters():k
+        p.requires_grad = True
+
+    # Record things
+    logger.store(LossQ=loss_q.item(), LossPi=loss_pi.item(), **loss_info)
+
+    # Finally, update target networks by polyak averaging.
+    with torch.no_grad():
+        for p, p_targ in zip(ac.parameters(), ac_targ.parameters()):
+            # NB: We use an in-place operations "mul_", "add_" to update target
+            # params, as opposed to "mul" and "add", which would make new tensors.
+            p_targ.data.mul_(polyak)
+            p_targ.data.add_((1 - polyak) * p.data)
+
+    def get_action(o, noise_scale):
+        a = ac.act(torch.as_tensor(o, dtype=torch.float32))
+        a += noise_scale * np.random.randn(act_dim)
+        return np.clip(a, -act_limit, act_limit)
+
+```
 
 
 
