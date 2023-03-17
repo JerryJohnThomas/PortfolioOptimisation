@@ -10,3 +10,15 @@ SAC -
 * [medium article](https://towardsdatascience.com/soft-actor-critic-demystified-b8427df61665)
 * commented ishwars code - [https://colab.research.google.com/drive/1547KP3ip3FHV6IOve2spbDfwcEzUiLEx?authuser=1#scrollTo=Eyoxfu3x66u9]
 
+
+
+
+***
+
+actor based on 1 parameter : theta
+* loss : L($\theta$)
+* fnid differential
+* $\theta$' = $\theta$ + $\alpha$ $\nabla L(\theta$)  
+
+
+**** 
