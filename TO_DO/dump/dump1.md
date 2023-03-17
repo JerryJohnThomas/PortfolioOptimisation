@@ -70,6 +70,13 @@ https://www.investopedia.com/terms/r/risk-seeking.asp
 
 * Risk seekers are more interested in capital gains from speculative assets than capital preservation from lower-risk assets. 
 * Risk tolerance is an important concept for investors and refers to the degree to which an investor is willing to accept risk for the potential of a higher return.
+
+
+***
+***
+***
+
+V S borker
 * 
 * 
 * 
